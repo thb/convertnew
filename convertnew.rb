@@ -18,7 +18,7 @@ def valid_units
   @conversion_table.flatten.filter { |el| el.is_a? String }
 end
 
-def conversion(str1, str2)
+def find_conversion(str1, str2)
   @conversion_table.find { |conv| conv.include?(@from_unit) && conv.include?(@to_unit) }
 end
 
@@ -35,7 +35,7 @@ def calc
   puts to_value
 end
 
-def manage_args
+def check_args
   # there should be exactly 3 arguments
   if ARGV.length != 3
     puts "Error: we need 3 arguments"
@@ -63,7 +63,7 @@ def manage_args
   @from_unit, @to_unit = ARGV[1], ARGV[2]
 
   # there should be a conversion for those 2 units
-  @conversion = conversion(@from_unit, @to_unit)
+  @conversion = find_conversion(@from_unit, @to_unit)
   if @conversion.nil? || @conversion.empty?
     puts "Error: conversion not found with #{@from_unit} and #{@to_unit}"
     exit
@@ -73,7 +73,7 @@ end
 
 
 def main
-  manage_args
+  check_args
   calc
 end
 
