@@ -1,11 +1,16 @@
 # convertnew
 
-A small script to convert units
+A small Ruby script to convert units from the command line.
 
-Example : convertnew 12 m2 pi2
+`convertnew <quantity> <from_unit> <to_unit>`
 
-Fill in the conversion table : 
-use the conversion rate (ex: 1 pi2 = 0.09290304 m2)
+Example :
+
+`convertnew 120 m2 pi2`
+
+Fill in the conversion table.
+
+Use the conversion rate (ex: 1 pi2 = 0.09290304 m2)
 so that : 1 <from_unit> = x <to_unit>
 
 ```
